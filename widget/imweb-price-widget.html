@@ -1,0 +1,86 @@
+<!-- 한국대표금거래소 메인 시세표 위젯 (아임웹 코드 위젯용) -->
+<div class="kdg-price">
+  <div class="kdg-head">
+    <div class="kdg-title">오늘의 금시세</div>
+    <div class="kdg-time" id="kdg-time"></div>
+  </div>
+  <table class="kdg-table">
+    <thead>
+      <tr><th>품목</th><th>살 때 <small>(VAT포함)</small></th><th>팔 때</th></tr>
+    </thead>
+    <tbody id="kdg-body"></tbody>
+  </table>
+  <div class="kdg-note">기준: 3.75g(1돈) · 시세는 매시간 갱신되며 매장 상황에 따라 달라질 수 있습니다.</div>
+</div>
+
+<style>
+.kdg-price{max-width:720px;margin:0 auto;font-family:'Pretendard','Noto Sans KR',sans-serif;color:#1a1a1a;border:1px solid #e6dcc4;border-radius:14px;overflow:hidden;background:#fff}
+.kdg-price .kdg-head{display:flex;justify-content:space-between;align-items:flex-end;padding:18px 22px;background:linear-gradient(135deg,#1c1a17,#3a3226);color:#f3e3b5}
+.kdg-price .kdg-title{font-size:20px;font-weight:700;letter-spacing:-0.3px}
+.kdg-price .kdg-time{font-size:12px;color:#cdbd90}
+.kdg-price .kdg-table{width:100%;border-collapse:collapse}
+.kdg-price .kdg-table th{font-size:13px;font-weight:600;color:#7a6a45;background:#faf6ec;padding:10px 12px;text-align:right;border-bottom:1px solid #eee4cc}
+.kdg-price .kdg-table th:first-child,.kdg-price .kdg-table td:first-child{text-align:left;padding-left:22px}
+.kdg-price .kdg-table th:last-child,.kdg-price .kdg-table td:last-child{padding-right:22px}
+.kdg-price .kdg-table small{font-weight:400;font-size:11px}
+.kdg-price .kdg-table td{padding:14px 12px;text-align:right;border-bottom:1px solid #f2ede1;vertical-align:middle}
+.kdg-price .kdg-table tr:last-child td{border-bottom:none}
+.kdg-price .kdg-name{font-weight:700;font-size:15px}
+.kdg-price .kdg-sub{display:block;font-size:11px;color:#9a917c;font-weight:400;margin-top:2px}
+.kdg-price .kdg-val{font-size:17px;font-weight:700;font-variant-numeric:tabular-nums}
+.kdg-price .kdg-text{font-size:14px;color:#8a7f66;font-weight:500}
+.kdg-price .kdg-chg{display:block;font-size:11px;margin-top:3px;font-weight:500}
+.kdg-price .up{color:#d93025}.kdg-price .down{color:#1a5fd0}.kdg-price .flat{color:#999}
+.kdg-price .kdg-note{font-size:11px;color:#9a917c;padding:10px 22px 14px;background:#fcfaf5;border-top:1px solid #f2ede1}
+@media (max-width:480px){
+  .kdg-price .kdg-head{padding:14px 16px}
+  .kdg-price .kdg-title{font-size:17px}
+  .kdg-price .kdg-table td,.kdg-price .kdg-table th{padding:11px 8px}
+  .kdg-price .kdg-table th:first-child,.kdg-price .kdg-table td:first-child{padding-left:16px}
+  .kdg-price .kdg-table th:last-child,.kdg-price .kdg-table td:last-child{padding-right:16px}
+  .kdg-price .kdg-val{font-size:15px}
+}
+</style>
+
+<script>
+(function(){
+  // 매시간 갱신되는 시세 파일 (불러오기 실패 시 아래 기본값 표시)
+  var DATA_URL = 'https://raw.githubusercontent.com/gessa3927/dpgold/main/prices.json';
+
+  // 2026-11-25 16:28 한국금거래소 고시가 + 우리 규칙 적용 결과 (시안용)
+  var FALLBACK = {
+    updated: '2026-11-25 16:28',
+    items: [
+      {name:'순금', sub:'24K', sell:665000, sellChg:-22000, buy:583000, buyChg:-18000},
+      {name:'18K', sub:'',    sell:null,   sellText:'제품시세적용', buy:427800, buyChg:-13300},
+      {name:'14K', sub:'',    sell:null,   sellText:'제품시세적용', buy:332100, buyChg:-10300},
+      {name:'백금', sub:'',   sell:236100, sellChg:-9000,  buy:192800, buyChg:-7000},
+      {name:'은',   sub:'',   sell:7160,   sellChg:-450,   buy:6340,   buyChg:-380}
+    ]
+  };
+
+  function won(n){return n.toLocaleString('ko-KR');}
+  function chg(c){
+    if(c==null) return '';
+    var cls=c>0?'up':(c<0?'down':'flat'), sym=c>0?'▲':(c<0?'▼':'-');
+    return '<span class="kdg-chg '+cls+'">'+sym+' '+won(Math.abs(c))+'</span>';
+  }
+  function cell(v,c,text){
+    if(v==null) return '<td><span class="kdg-text">'+(text||'-')+'</span></td>';
+    return '<td><span class="kdg-val">'+won(v)+'</span>'+chg(c)+'</td>';
+  }
+  function render(d){
+    document.getElementById('kdg-time').textContent = d.updated + ' 기준';
+    document.getElementById('kdg-body').innerHTML = d.items.map(function(it){
+      return '<tr><td><span class="kdg-name">'+it.name+'</span>'+(it.sub?'<span class="kdg-sub">'+it.sub+'</span>':'')+'</td>'
+        + cell(it.sell,it.sellChg,it.sellText) + cell(it.buy,it.buyChg,it.buyText) + '</tr>';
+    }).join('');
+  }
+
+  render(FALLBACK);
+  if(DATA_URL){
+    fetch(DATA_URL+(DATA_URL.indexOf('?')>-1?'&':'?')+'t='+Date.now())
+      .then(function(r){return r.json();}).then(render).catch(function(){});
+  }
+})();
+</script>
