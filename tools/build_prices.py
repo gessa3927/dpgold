@@ -41,7 +41,28 @@ def parse_cell(text):
     return price, chg, None
 
 
+def check_cell(text):
+    """카운트업 애니메이션 중간값 방지: 표시된 등락률과 (등락액/가격)이 일치해야 함."""
+    m = re.match(r"\s*([\d,]+)\s*([+-]?[\d.]+)%\s*(up|down)?\s*([+-]?[\d,]+)", text or "")
+    if not m:
+        return  # '제품시세적용' 등 숫자 없는 칸
+    price = int(m.group(1).replace(",", ""))
+    pct = abs(float(m.group(2)))
+    chg = abs(int(m.group(4).replace(",", "").lstrip("+-")))
+    if price <= 0:
+        raise ValueError(f"가격 0: {text}")
+    calc = chg / price * 100
+    if abs(calc - pct) > 0.06:
+        raise ValueError(f"등락률 불일치(애니메이션 중간값 의심): {text} → 계산 {calc:.2f}% vs 표시 {pct}%")
+
+
 def build(raw):
+    for key in ["gold24", "gold18", "gold14", "platinum", "silver"]:
+        for c in raw["out"][key]["cells"]:
+            check_cell(c)
+    g = raw["out"]["gold24"]["cells"]
+    if parse_cell(g[0])[0] <= parse_cell(g[1])[0]:
+        raise ValueError("순금 살 때 <= 팔 때: 비정상")
     items = []
     for key in ["gold24", "gold18", "gold14", "platinum", "silver"]:
         cells = raw["out"][key]["cells"]
