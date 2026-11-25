@@ -1,86 +1,101 @@
-<!-- 한국대표금거래소 메인 시세표 위젯 (아임웹 코드 위젯용) -->
-<div class="kdg-price">
-  <div class="kdg-head">
-    <div class="kdg-title">오늘의 금시세</div>
-    <div class="kdg-time" id="kdg-time"></div>
+<!-- 한국대표금거래소 메인 '금·은 시세 안내' (아임웹 코드 위젯용, 매시간 자동 갱신) -->
+<div class="kdgp">
+  <div class="kdgp-left">
+    <div class="kdgp-brand">한국대표금거래소</div>
+    <div class="kdgp-title">금·은 시세 안내</div>
+    <div class="kdgp-unit">단위: 3.75g (자사골드바 기준)</div>
+    <div class="kdgp-date" id="kdgp-date"></div>
   </div>
-  <table class="kdg-table">
-    <thead>
-      <tr><th>품목</th><th>살 때 <small>(VAT포함)</small></th><th>팔 때</th></tr>
-    </thead>
-    <tbody id="kdg-body"></tbody>
-  </table>
-  <div class="kdg-note">기준: 3.75g(1돈) · 시세는 매시간 갱신되며 매장 상황에 따라 달라질 수 있습니다.</div>
+  <div class="kdgp-right">
+    <div class="kdgp-scroll">
+      <table class="kdgp-table">
+        <thead>
+          <tr>
+            <th></th>
+            <th>24k 순금시세</th>
+            <th>18k 금시세</th>
+            <th>14k 금시세</th>
+            <th>백금<br>(platinum)</th>
+            <th>순은(silver)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr id="kdgp-sell"><td class="kdgp-rowh">내가 살 때</td></tr>
+          <tr id="kdgp-buy"><td class="kdgp-rowh">내가 팔 때</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="kdgp-note" id="kdgp-note"></div>
+  </div>
 </div>
 
 <style>
-.kdg-price{max-width:720px;margin:0 auto;font-family:'Pretendard','Noto Sans KR',sans-serif;color:#1a1a1a;border:1px solid #e6dcc4;border-radius:14px;overflow:hidden;background:#fff}
-.kdg-price .kdg-head{display:flex;justify-content:space-between;align-items:flex-end;padding:18px 22px;background:linear-gradient(135deg,#1c1a17,#3a3226);color:#f3e3b5}
-.kdg-price .kdg-title{font-size:20px;font-weight:700;letter-spacing:-0.3px}
-.kdg-price .kdg-time{font-size:12px;color:#cdbd90}
-.kdg-price .kdg-table{width:100%;border-collapse:collapse}
-.kdg-price .kdg-table th{font-size:13px;font-weight:600;color:#7a6a45;background:#faf6ec;padding:10px 12px;text-align:right;border-bottom:1px solid #eee4cc}
-.kdg-price .kdg-table th:first-child,.kdg-price .kdg-table td:first-child{text-align:left;padding-left:22px}
-.kdg-price .kdg-table th:last-child,.kdg-price .kdg-table td:last-child{padding-right:22px}
-.kdg-price .kdg-table small{font-weight:400;font-size:11px}
-.kdg-price .kdg-table td{padding:14px 12px;text-align:right;border-bottom:1px solid #f2ede1;vertical-align:middle}
-.kdg-price .kdg-table tr:last-child td{border-bottom:none}
-.kdg-price .kdg-name{font-weight:700;font-size:15px}
-.kdg-price .kdg-sub{display:block;font-size:11px;color:#9a917c;font-weight:400;margin-top:2px}
-.kdg-price .kdg-val{font-size:17px;font-weight:700;font-variant-numeric:tabular-nums}
-.kdg-price .kdg-text{font-size:14px;color:#8a7f66;font-weight:500}
-.kdg-price .kdg-chg{display:block;font-size:11px;margin-top:3px;font-weight:500}
-.kdg-price .up{color:#d93025}.kdg-price .down{color:#1a5fd0}.kdg-price .flat{color:#999}
-.kdg-price .kdg-note{font-size:11px;color:#9a917c;padding:10px 22px 14px;background:#fcfaf5;border-top:1px solid #f2ede1}
-@media (max-width:480px){
-  .kdg-price .kdg-head{padding:14px 16px}
-  .kdg-price .kdg-title{font-size:17px}
-  .kdg-price .kdg-table td,.kdg-price .kdg-table th{padding:11px 8px}
-  .kdg-price .kdg-table th:first-child,.kdg-price .kdg-table td:first-child{padding-left:16px}
-  .kdg-price .kdg-table th:last-child,.kdg-price .kdg-table td:last-child{padding-right:16px}
-  .kdg-price .kdg-val{font-size:15px}
+.kdgp{display:flex;gap:40px;align-items:flex-start;max-width:1200px;margin:0 auto;padding:10px 20px;font-family:'Noto Sans KR','Pretendard',sans-serif;color:#1d2a4d;box-sizing:border-box}
+.kdgp *{box-sizing:border-box}
+.kdgp-left{flex:0 0 200px;padding-top:6px}
+.kdgp-brand{font-size:13px;color:#555;margin-bottom:4px}
+.kdgp-title{font-size:24px;font-weight:800;color:#1d2a4d;letter-spacing:-0.5px;margin-bottom:10px}
+.kdgp-unit{font-size:11px;color:#777;margin-bottom:4px}
+.kdgp-date{font-size:12px;font-weight:700;color:#b08a3e}
+.kdgp-right{flex:1;min-width:0}
+.kdgp-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch}
+.kdgp-table{width:100%;min-width:640px;border-collapse:collapse;table-layout:fixed}
+.kdgp-table th{font-family:'Noto Serif KR',serif;font-weight:500;font-size:15px;color:#333;padding:10px 8px 18px;text-align:center;line-height:1.35;border-bottom:1px solid #e6e6e6}
+.kdgp-table th:first-child{width:90px}
+.kdgp-table td{text-align:center;padding:18px 8px;border-bottom:1px solid #eee;vertical-align:middle}
+.kdgp-table tr:last-child td{border-bottom:1px solid #e6e6e6}
+.kdgp-rowh{font-size:14px;color:#444;font-weight:500}
+.kdgp-val{display:block;font-size:19px;font-weight:700;color:#1d2a4d;font-variant-numeric:tabular-nums}
+.kdgp-txt{display:block;font-size:17px;font-weight:600;color:#1d2a4d;line-height:1.3}
+.kdgp-chg{display:block;font-size:11px;margin-top:4px}
+.kdgp-chg.up{color:#c0392b}.kdgp-chg.down{color:#2456b8}.kdgp-chg.flat{color:#999}
+.kdgp-note{font-size:11px;color:#888;text-align:right;padding:10px 4px 0}
+@media (max-width:768px){
+  .kdgp{flex-direction:column;gap:14px;padding:10px 14px}
+  .kdgp-left{flex:none}
+  .kdgp-title{font-size:20px;margin-bottom:6px}
+  .kdgp-table th{font-size:13px}
+  .kdgp-val{font-size:16px}
+  .kdgp-txt{font-size:14px}
+  .kdgp-note{text-align:left}
 }
 </style>
 
 <script>
 (function(){
-  // 매시간 갱신되는 시세 파일 (불러오기 실패 시 아래 기본값 표시)
   var DATA_URL = 'https://raw.githubusercontent.com/gessa3927/dpgold/main/prices.json';
 
-  // 2026-11-25 16:28 한국금거래소 고시가 + 우리 규칙 적용 결과 (시안용)
-  var FALLBACK = {
-    updated: '2026-11-25 16:28',
-    items: [
-      {name:'순금', sub:'24K', sell:665000, sellChg:-22000, buy:583000, buyChg:-18000},
-      {name:'18K', sub:'',    sell:null,   sellText:'제품시세적용', buy:427800, buyChg:-13300},
-      {name:'14K', sub:'',    sell:null,   sellText:'제품시세적용', buy:332100, buyChg:-10300},
-      {name:'백금', sub:'',   sell:236100, sellChg:-9000,  buy:192800, buyChg:-7000},
-      {name:'은',   sub:'',   sell:7160,   sellChg:-450,   buy:6340,   buyChg:-380}
-    ]
-  };
+  // 불러오기 실패 시 표시할 기본값 (2026-11-25 16:53 기준)
+  var FALLBACK = {"updated":"2026-11-25 16:53","items":[
+    {"name":"순금","sell":665000,"sellChg":-22000,"buy":583000,"buyChg":-18000},
+    {"name":"18K","sell":null,"sellText":"제품시세적용","buy":427800,"buyChg":-13300},
+    {"name":"14K","sell":null,"sellText":"제품시세적용","buy":332100,"buyChg":-10300},
+    {"name":"백금","sell":236100,"sellChg":-9000,"buy":192800,"buyChg":-7000},
+    {"name":"은","sell":7160,"sellChg":-450,"buy":6340,"buyChg":-380}]};
 
-  function won(n){return n.toLocaleString('ko-KR');}
-  function chg(c){
-    if(c==null) return '';
-    var cls=c>0?'up':(c<0?'down':'flat'), sym=c>0?'▲':(c<0?'▼':'-');
-    return '<span class="kdg-chg '+cls+'">'+sym+' '+won(Math.abs(c))+'</span>';
-  }
+  function won(n){return Number(n).toLocaleString('ko-KR');}
   function cell(v,c,text){
-    if(v==null) return '<td><span class="kdg-text">'+(text||'-')+'</span></td>';
-    return '<td><span class="kdg-val">'+won(v)+'</span>'+chg(c)+'</td>';
+    if(v==null) return '<td><span class="kdgp-txt">'+(text||'-')+'</span></td>';
+    var h='<td><span class="kdgp-val">'+won(v)+'</span>';
+    if(c!=null){
+      var prev=v-c, pct=prev?Math.abs(c/prev*100).toFixed(2):'0.00';
+      var cls=c>0?'up':(c<0?'down':'flat'), sym=c>0?'▲':(c<0?'▼':'-');
+      h+='<span class="kdgp-chg '+cls+'">'+sym+' '+won(Math.abs(c))+' ('+pct+'%)</span>';
+    }
+    return h+'</td>';
   }
   function render(d){
-    document.getElementById('kdg-time').textContent = d.updated + ' 기준';
-    document.getElementById('kdg-body').innerHTML = d.items.map(function(it){
-      return '<tr><td><span class="kdg-name">'+it.name+'</span>'+(it.sub?'<span class="kdg-sub">'+it.sub+'</span>':'')+'</td>'
-        + cell(it.sell,it.sellChg,it.sellText) + cell(it.buy,it.buyChg,it.buyText) + '</tr>';
-    }).join('');
+    var sell=document.getElementById('kdgp-sell'), buy=document.getElementById('kdgp-buy');
+    var sh='<td class="kdgp-rowh">내가 살 때</td>', bh='<td class="kdgp-rowh">내가 팔 때</td>';
+    d.items.forEach(function(it){ sh+=cell(it.sell,it.sellChg,it.sellText); bh+=cell(it.buy,it.buyChg,it.buyText); });
+    sell.innerHTML=sh; buy.innerHTML=bh;
+    var u=d.updated||''; var m=u.match(/(\d{4})-(\d{2})-(\d{2})\s*(\d{2}:\d{2})?/);
+    document.getElementById('kdgp-date').textContent = m ? (m[1]+'-'+m[2]+'-'+m[3]+(m[4]?' '+m[4]:'')) : u;
+    document.getElementById('kdgp-note').textContent = m
+      ? '표시된 금액은 '+m[1]+'년 '+Number(m[2])+'월 '+Number(m[3])+'일 '+(m[4]||'')+' 기준입니다. 현재 구매·매입 금액은 상담을 통해 확인해 주세요.'
+      : '현재 구매·매입 금액은 상담을 통해 확인해 주세요.';
   }
-
   render(FALLBACK);
-  if(DATA_URL){
-    fetch(DATA_URL+(DATA_URL.indexOf('?')>-1?'&':'?')+'t='+Date.now())
-      .then(function(r){return r.json();}).then(render).catch(function(){});
-  }
+  fetch(DATA_URL+'?t='+Date.now(),{cache:'no-store'}).then(function(r){return r.json();}).then(render).catch(function(){});
 })();
 </script>
