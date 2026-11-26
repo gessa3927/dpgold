@@ -112,6 +112,62 @@
       "don": 1,
       "labor": 26000,
       "enabled": false
+    },
+    {
+      "prodNo": 207,
+      "name": "크라운 돌반지",
+      "don": 1,
+      "labor": 25000,
+      "enabled": false
+    },
+    {
+      "prodNo": 208,
+      "name": "크라운 돌팔찌",
+      "don": 1,
+      "labor": 25000,
+      "enabled": false
+    },
+    {
+      "prodNo": 209,
+      "name": "왕관 돌반지",
+      "don": 1,
+      "labor": 25000,
+      "enabled": false
+    },
+    {
+      "prodNo": 210,
+      "name": "꼬까신 돌반지",
+      "don": 1,
+      "labor": 25000,
+      "enabled": false
+    },
+    {
+      "prodNo": 213,
+      "name": "레고 오브제",
+      "don": 1,
+      "labor": 20000,
+      "enabled": false
+    },
+    {
+      "prodNo": 214,
+      "name": "순금다이아몬드",
+      "don": 1,
+      "labor": 20000,
+      "enabled": false
+    },
+    {
+      "prodNo": 215,
+      "name": "사신도",
+      "don": 1,
+      "labor": 26000,
+      "enabled": false
+    },
+    {
+      "prodNo": 197,
+      "name": "스네이크귀걸이",
+      "don": 1,
+      "labor": 60000,
+      "enabled": false
     }
   ]
 }
