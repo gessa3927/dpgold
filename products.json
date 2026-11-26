@@ -1,0 +1,6 @@
+{
+  "_설명": "순금 제품별 돈수와 공임. 판매가 = 순금 살 때(VAT포함) x don + labor (100원 단위 반올림). enabled=false면 건너뜀.",
+  "products": [
+    {"prodNo": 198, "name": "한국대표금거래소 골드바 3.75g(한돈)", "don": 1, "labor": 70000, "enabled": true}
+  ]
+}

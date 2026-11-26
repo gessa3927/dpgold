@@ -1,0 +1,40 @@
+name: 아임웹 연결 (최초 1회)
+
+on:
+  workflow_dispatch:
+    inputs:
+      code:
+        description: "아임웹 동의 후 주소창의 code= 뒤 값"
+        required: true
+
+concurrency:
+  group: imweb-token
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  auth:
+    runs-on: ubuntu-latest
+    env:
+      IMWEB_CLIENT_ID: ${{ secrets.IMWEB_CLIENT_ID }}
+      IMWEB_CLIENT_SECRET: ${{ secrets.IMWEB_CLIENT_SECRET }}
+      TOKEN_KEY: ${{ secrets.TOKEN_KEY }}
+      IMWEB_REDIRECT_URI: https://gessa392729684.imweb.me/
+    steps:
+      - uses: actions/checkout@v4
+      - name: 토큰 발급
+        env:
+          AUTH_CODE: ${{ inputs.code }}
+        run: python3 tools/imweb_sync.py auth "$AUTH_CODE"
+      - name: 상품 목록
+        run: python3 tools/imweb_sync.py list
+      - name: 토큰 저장
+        run: |
+          git config user.name "dpgold-bot"
+          git config user.email "dpgold-bot@users.noreply.github.com"
+          git add .imweb/token.enc
+          git commit -m "아임웹 토큰 갱신" || exit 0
+          git pull --rebase origin main
+          git push origin HEAD:main

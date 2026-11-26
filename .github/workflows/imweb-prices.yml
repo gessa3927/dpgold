@@ -1,0 +1,50 @@
+name: 아임웹 순금 판매가 갱신
+
+on:
+  push:
+    branches: [main]
+    paths: [prices.json, products.json]
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: "미리보기만 (실제 수정 안 함)"
+        type: boolean
+        default: true
+  schedule:
+    # 리프레시 토큰(90일) 만료 방지용 주 1회 실행 (월 09:30 KST)
+    - cron: "30 0 * * 1"
+
+concurrency:
+  group: imweb-token
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    env:
+      IMWEB_CLIENT_ID: ${{ secrets.IMWEB_CLIENT_ID }}
+      IMWEB_CLIENT_SECRET: ${{ secrets.IMWEB_CLIENT_SECRET }}
+      TOKEN_KEY: ${{ secrets.TOKEN_KEY }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: 판매가 갱신
+        run: |
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ] && [ "${{ inputs.dry_run }}" = "true" ]; then
+            python3 tools/imweb_sync.py sync --dry-run
+          else
+            python3 tools/imweb_sync.py sync
+          fi
+      - name: 바뀐 토큰 저장
+        if: always()
+        run: |
+          git config user.name "dpgold-bot"
+          git config user.email "dpgold-bot@users.noreply.github.com"
+          git add .imweb/token.enc 2>/dev/null || true
+          git commit -m "아임웹 토큰 갱신" || exit 0
+          for i in 1 2 3; do
+            git pull --rebase origin main && git push origin HEAD:main && break
+            sleep 3
+          done
