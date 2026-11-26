@@ -41,77 +41,77 @@
       "name": "프리미엄 카드형 골드바 3.75g(한돈)",
       "don": 1,
       "labor": 30000,
-      "enabled": true
+      "enabled": false
     },
     {
       "prodNo": 204,
       "name": "프리미엄 카드형 골드바 3.75g(한돈)",
       "don": 1,
       "labor": 30000,
-      "enabled": true
+      "enabled": false
     },
     {
       "prodNo": 205,
       "name": "프리미엄 카드형 골드바 3.75g(한돈)",
       "don": 1,
       "labor": 30000,
-      "enabled": true
+      "enabled": false
     },
     {
       "prodNo": 206,
       "name": "프리미엄 카드형 골드바 3.75g(한돈)",
       "don": 1,
       "labor": 30000,
-      "enabled": true
+      "enabled": false
     },
     {
       "prodNo": 212,
       "name": "홀마크 주물금 10돈",
       "don": 10,
       "labor": 0,
-      "enabled": true
+      "enabled": false
     },
     {
       "prodNo": 211,
       "name": "금괴 오브제 1g",
       "don": 0.2667,
       "labor": 30000,
-      "enabled": true
+      "enabled": false
     },
     {
       "prodNo": 194,
       "name": "순금팔찌 10돈",
       "don": 10,
       "labor": 160000,
-      "enabled": true
+      "enabled": false
     },
     {
       "prodNo": 195,
       "name": "팔각체인목걸이 20돈",
       "don": 20,
       "labor": 200000,
-      "enabled": true
+      "enabled": false
     },
     {
       "prodNo": 196,
       "name": "3돈 반지",
       "don": 3,
       "labor": 80000,
-      "enabled": true
+      "enabled": false
     },
     {
       "prodNo": 192,
       "name": "콩알금 3.75g",
       "don": 1,
       "labor": 0,
-      "enabled": true
+      "enabled": false
     },
     {
       "prodNo": 191,
       "name": "골드바 3.75g",
       "don": 1,
       "labor": 26000,
-      "enabled": true
+      "enabled": false
     }
   ]
 }
