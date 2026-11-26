@@ -1,45 +1,45 @@
 {
-  "updated": "2026-11-25 19:04",
+  "updated": "2026-11-26 10:03",
   "items": [
     {
       "name": "순금",
       "sub": "24K",
-      "sell": 665000,
-      "sellChg": -22000,
-      "buy": 583000,
-      "buyChg": -18000
+      "sell": 676000,
+      "sellChg": 11000,
+      "buy": 588000,
+      "buyChg": 5000
     },
     {
       "name": "18K",
       "sub": "",
       "sell": null,
       "sellText": "제품시세적용",
-      "buy": 427800,
-      "buyChg": -13300
+      "buy": 431500,
+      "buyChg": 3700
     },
     {
       "name": "14K",
       "sub": "",
       "sell": null,
       "sellText": "제품시세적용",
-      "buy": 332100,
-      "buyChg": -10300
+      "buy": 335000,
+      "buyChg": 2900
     },
     {
       "name": "백금",
       "sub": "",
-      "sell": 236100,
-      "sellChg": -9000,
-      "buy": 192800,
-      "buyChg": -7000
+      "sell": 241100,
+      "sellChg": 5000,
+      "buy": 196800,
+      "buyChg": 4000
     },
     {
       "name": "은",
       "sub": "",
-      "sell": 7160,
-      "sellChg": -450,
-      "buy": 6340,
-      "buyChg": -380
+      "sell": 7360,
+      "sellChg": 200,
+      "buy": 6510,
+      "buyChg": 170
     }
   ]
 }
