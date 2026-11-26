@@ -1,6 +1,117 @@
 {
-  "_설명": "순금 제품별 돈수와 공임. 판매가 = 순금 살 때(VAT포함) x don + labor (100원 단위 반올림). enabled=false면 건너뜀.",
+  "_설명": "순금 제품별 돈수와 공임. 판매가 = 순금 살 때(VAT포함) x don + labor (100원 단위 반올림). enabled=false면 건너뜀. 원본: 순금 제품 공임표 시트",
   "products": [
-    {"prodNo": 198, "name": "한국대표금거래소 골드바 3.75g(한돈)", "don": 1, "labor": 70000, "enabled": true}
+    {
+      "prodNo": 198,
+      "name": "한국대표금거래소 골드바 3.75g(한돈)",
+      "don": 1,
+      "labor": 26000,
+      "enabled": true
+    },
+    {
+      "prodNo": 199,
+      "name": "한국대표금거래소 골드바 7.5g(두돈)",
+      "don": 2,
+      "labor": 43000,
+      "enabled": true
+    },
+    {
+      "prodNo": 200,
+      "name": "한국대표금거래소 골드바 11.25g(세돈)",
+      "don": 3,
+      "labor": 9000,
+      "enabled": true
+    },
+    {
+      "prodNo": 201,
+      "name": "한국대표금거래소 골도바 18.75g(다섯돈)",
+      "don": 5,
+      "labor": 16000,
+      "enabled": true
+    },
+    {
+      "prodNo": 202,
+      "name": "한국대표금거래소 골드바 37.5g(열돈)",
+      "don": 10,
+      "labor": 12000,
+      "enabled": true
+    },
+    {
+      "prodNo": 203,
+      "name": "프리미엄 카드형 골드바 3.75g(한돈)",
+      "don": 1,
+      "labor": 30000,
+      "enabled": true
+    },
+    {
+      "prodNo": 204,
+      "name": "프리미엄 카드형 골드바 3.75g(한돈)",
+      "don": 1,
+      "labor": 30000,
+      "enabled": true
+    },
+    {
+      "prodNo": 205,
+      "name": "프리미엄 카드형 골드바 3.75g(한돈)",
+      "don": 1,
+      "labor": 30000,
+      "enabled": true
+    },
+    {
+      "prodNo": 206,
+      "name": "프리미엄 카드형 골드바 3.75g(한돈)",
+      "don": 1,
+      "labor": 30000,
+      "enabled": true
+    },
+    {
+      "prodNo": 212,
+      "name": "홀마크 주물금 10돈",
+      "don": 10,
+      "labor": 0,
+      "enabled": true
+    },
+    {
+      "prodNo": 211,
+      "name": "금괴 오브제 1g",
+      "don": 0.2667,
+      "labor": 30000,
+      "enabled": true
+    },
+    {
+      "prodNo": 194,
+      "name": "순금팔찌 10돈",
+      "don": 10,
+      "labor": 160000,
+      "enabled": true
+    },
+    {
+      "prodNo": 195,
+      "name": "팔각체인목걸이 20돈",
+      "don": 20,
+      "labor": 200000,
+      "enabled": true
+    },
+    {
+      "prodNo": 196,
+      "name": "3돈 반지",
+      "don": 3,
+      "labor": 80000,
+      "enabled": true
+    },
+    {
+      "prodNo": 192,
+      "name": "콩알금 3.75g",
+      "don": 1,
+      "labor": 0,
+      "enabled": true
+    },
+    {
+      "prodNo": 191,
+      "name": "골드바 3.75g",
+      "don": 1,
+      "labor": 26000,
+      "enabled": true
+    }
   ]
 }

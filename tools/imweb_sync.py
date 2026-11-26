@@ -185,6 +185,7 @@ def cmd_sync(dry_run):
         http("PATCH", f"/products/{item['prodNo']}/price", token=at, body={
             "unitCode": uc,
             "price": new,
+            "isPriceNone": "N",
             "isPriceTaxIncluded": "Y",
         })
         changed += 1
