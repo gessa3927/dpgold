@@ -41,133 +41,133 @@
       "name": "프리미엄 카드형 골드바 3.75g(한돈)",
       "don": 1,
       "labor": 30000,
-      "enabled": false
+      "enabled": true
     },
     {
       "prodNo": 204,
       "name": "프리미엄 카드형 골드바 3.75g(한돈)",
       "don": 1,
       "labor": 30000,
-      "enabled": false
+      "enabled": true
     },
     {
       "prodNo": 205,
       "name": "프리미엄 카드형 골드바 3.75g(한돈)",
       "don": 1,
       "labor": 30000,
-      "enabled": false
+      "enabled": true
     },
     {
       "prodNo": 206,
       "name": "프리미엄 카드형 골드바 3.75g(한돈)",
       "don": 1,
       "labor": 30000,
-      "enabled": false
+      "enabled": true
     },
     {
       "prodNo": 212,
       "name": "홀마크 주물금 10돈",
       "don": 10,
       "labor": 0,
-      "enabled": false
+      "enabled": true
     },
     {
       "prodNo": 211,
       "name": "금괴 오브제 1g",
       "don": 0.2667,
       "labor": 30000,
-      "enabled": false
+      "enabled": true
     },
     {
       "prodNo": 194,
       "name": "순금팔찌 10돈",
       "don": 10,
       "labor": 160000,
-      "enabled": false
+      "enabled": true
     },
     {
       "prodNo": 195,
       "name": "팔각체인목걸이 20돈",
       "don": 20,
       "labor": 200000,
-      "enabled": false
+      "enabled": true
     },
     {
       "prodNo": 196,
       "name": "3돈 반지",
       "don": 3,
       "labor": 80000,
-      "enabled": false
+      "enabled": true
     },
     {
       "prodNo": 192,
       "name": "콩알금 3.75g",
       "don": 1,
       "labor": 0,
-      "enabled": false
+      "enabled": true
     },
     {
       "prodNo": 191,
       "name": "골드바 3.75g",
       "don": 1,
       "labor": 26000,
-      "enabled": false
+      "enabled": true
     },
     {
       "prodNo": 207,
       "name": "크라운 돌반지",
       "don": 1,
       "labor": 25000,
-      "enabled": false
+      "enabled": true
     },
     {
       "prodNo": 208,
       "name": "크라운 돌팔찌",
       "don": 1,
       "labor": 25000,
-      "enabled": false
+      "enabled": true
     },
     {
       "prodNo": 209,
       "name": "왕관 돌반지",
       "don": 1,
       "labor": 25000,
-      "enabled": false
+      "enabled": true
     },
     {
       "prodNo": 210,
       "name": "꼬까신 돌반지",
       "don": 1,
       "labor": 25000,
-      "enabled": false
+      "enabled": true
     },
     {
       "prodNo": 213,
       "name": "레고 오브제",
       "don": 1,
       "labor": 20000,
-      "enabled": false
+      "enabled": true
     },
     {
       "prodNo": 214,
       "name": "순금다이아몬드",
       "don": 1,
       "labor": 20000,
-      "enabled": false
+      "enabled": true
     },
     {
       "prodNo": 215,
       "name": "사신도",
       "don": 1,
       "labor": 26000,
-      "enabled": false
+      "enabled": true
     },
     {
       "prodNo": 197,
       "name": "스네이크귀걸이",
       "don": 1,
       "labor": 60000,
-      "enabled": false
+      "enabled": true
     }
   ]
 }
