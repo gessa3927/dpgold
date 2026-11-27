@@ -168,6 +168,34 @@
       "don": 1,
       "labor": 60000,
       "enabled": true
+    },
+    {
+      "prodNo": 216,
+      "name": "사신도 골드바 7.5g(두돈)",
+      "don": 2,
+      "labor": 43000,
+      "enabled": true
+    },
+    {
+      "prodNo": 217,
+      "name": "사신도 골드바 11.25g(세돈)",
+      "don": 3,
+      "labor": 9000,
+      "enabled": true
+    },
+    {
+      "prodNo": 218,
+      "name": "사신도 골드바 18.75g(다섯돈)",
+      "don": 5,
+      "labor": 16000,
+      "enabled": true
+    },
+    {
+      "prodNo": 219,
+      "name": "사신도 골드바 37.5g(열돈)",
+      "don": 10,
+      "labor": 12000,
+      "enabled": true
     }
   ]
 }
